@@ -1,0 +1,53 @@
+<div class="carrossel-container">
+  <h3 class="carrossel-title">🎮 Jogos Sugeridos</h3>
+  
+  <div class="carrossel-wrapper">
+    <button class="nav-btn prev-btn" (click)="prevSlide()">
+      <span>‹</span>
+    </button>
+    
+    <div class="carrossel-content">
+      <div class="cards-container">
+        <div class="card" *ngFor="let jogo of getVisibleGames(); let i = index" 
+             [class.active]="i === 1">
+          <div class="card-image">
+            <img [src]="jogo.imagem" [alt]="jogo.nome" (error)="onImageError($event)">
+            <div class="card-overlay">
+              <div class="rating">
+                <span class="star">★</span>
+                <span class="score">{{ jogo.nota }}</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="card-content">
+            <h4 class="game-title">{{ jogo.nome }}</h4>
+            <div class="game-meta">
+              <span class="game-type">{{ jogo.tipo }}</span>
+              <span class="game-year">{{ jogo.ano }}</span>
+            </div>
+            <p class="game-description">{{ jogo.descricao }}</p>
+            
+            <button class="play-btn">
+              <span class="play-icon">▶</span>
+              Jogar Agora
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <button class="nav-btn next-btn" (click)="nextSlide()">
+      <span>›</span>
+    </button>
+  </div>
+  
+  <div class="indicators">
+    <button 
+      *ngFor="let jogo of jogosSugeridos; let i = index" 
+      class="indicator" 
+      [class.active]="i === currentIndex"
+      (click)="goToSlide(i)">
+    </button>
+  </div>
+</div>
