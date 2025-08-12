@@ -1,59 +1,131 @@
-# Frontend
+# 🎮 Frontend - Catálogo de Jogos Dark Edition
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+![Angular](https://img.shields.io/badge/angular-DD0031?style=flat&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-3178C6?style=flat&logo=typescript&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-1572B6?style=flat&logo=css3&logoColor=white)
 
-## Development server
+Interface moderna com tema dark fluorescente e carrossel de jogos sugeridos.
 
-To start a local development server, run:
+## ✨ Funcionalidades
 
+### 🎯 Componentes Principais
+- **📋 Lista de Jogos** - Tabela com CRUD completo
+- **➕ Novo Jogo** - Formulário de cadastro
+- **✏️ Editar Jogo** - Formulário de edição
+- **🎪 Carrossel Sugeridos** - Slider com 5 jogos
+
+### 🎨 Design System
+- **🌑 Tema Dark** - Fundo gradiente escuro
+- **⚡ Cores Fluorescentes** - Ciano, magenta, amarelo
+- **💎 Glassmorphism** - Blur effects e transparências
+- **🎭 Animações** - Hover effects e transições
+- **📱 Responsivo** - Mobile-first design
+
+### 🚀 Recursos Técnicos
+- **Angular 18** com Standalone Components
+- **TypeScript** para tipagem forte
+- **Reactive Forms** com validação
+- **HTTP Client** para comunicação com API
+- **CSS Grid/Flexbox** para layouts
+
+## 🛠️ Como executar
+
+### Pré-requisitos
+```bash
+npm install -g @angular/cli
+```
+
+### Instalação
+```bash
+npm install
+```
+
+### Desenvolvimento
 ```bash
 ng serve
 ```
+🟢 **App disponível em:** `http://localhost:4200`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+### Build de Produção
 ```bash
-ng generate component component-name
+ng build --prod
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## 📂 Estrutura de Componentes
 
-```bash
-ng generate --help
+```
+src/app/
+├── components/
+│   ├── lista-jogos/              # Componente principal
+│   │   ├── lista-jogos.component.ts
+│   │   ├── lista-jogos.component.html
+│   │   └── lista-jogos.component.css
+│   ├── novo-jogo/                # Formulário cadastro
+│   │   ├── novo-jogo.component.ts
+│   │   ├── novo-jogo.component.html  
+│   │   └── novo-jogo.component.css
+│   ├── editar-jogo/              # Formulário edição
+│   │   ├── editar-jogo.component.ts
+│   │   ├── editar-jogo.component.html
+│   │   └── editar-jogo.component.css
+│   └── carrossel-sugeridos/      # Slider de jogos
+│       ├── carrossel-sugeridos.component.ts
+│       ├── carrossel-sugeridos.component.html
+│       └── carrossel-sugeridos.component.css
+├── services/
+│   └── game.service.ts           # Service HTTP
+├── app.routes.ts                 # Roteamento
+├── app.config.ts                 # Configuração global
+└── styles.css                    # Tema dark global
 ```
 
-## Building
+## 🎨 Design System Detalhado
 
-To build the project run:
+### 🌑 Paleta de Cores
+```css
+/* Cores Primárias */
+--primary-cyan: #00ffff      /* Ciano fluorescente */
+--primary-magenta: #ff00ff   /* Magenta vibrante */
+--primary-yellow: #ffff00    /* Amarelo neon */
+--primary-red: #dc2626       /* Vermelho vibrante */
+--primary-purple: #7c3aed    /* Roxo intenso */
 
-```bash
-ng build
+/* Botão Novo Jogo */
+--btn-add-gradient: linear-gradient(135deg, #dc2626 0%, #7c3aed 100%)
+
+/* Fundos */
+--bg-gradient: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)
+--container-bg: rgba(26, 32, 44, 0.95)
+--glass-bg: rgba(45, 55, 72, 0.8)
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 🎯 Botão "Novo Jogo" Centralizado
+- **Posicionamento**: Centralizado com `display: flex` e `justify-content: center`
+- **Gradiente**: Vermelho → Roxo (`#dc2626` → `#7c3aed`)
+- **Hover Effect**: Inversão do gradiente + escala 1.08
+- **Sombra**: Brilho vermelho/roxo fluorescente
+- **Tipografia**: Font-weight 700, letter-spacing 1.5px, uppercase
 
-## Running unit tests
+## 🎪 Carrossel de Jogos
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Jogos Incluídos
+1. **Cyberpunk 2077** (RPG, 2020) - ⭐ 8.5
+2. **The Witcher 3** (RPG, 2015) - ⭐ 9.3  
+3. **Valorant** (FPS, 2020) - ⭐ 8.7
+4. **League of Legends** (MOBA, 2009) - ⭐ 8.9
+5. **Elden Ring** (Souls-like, 2022) - ⭐ 9.5
 
-```bash
-ng test
-```
+## 🖼️ Sistema de Imagens
 
-## Running end-to-end tests
+Coloque suas imagens em: `public/images/jogos/`
+- **Formato**: JPG, PNG ou WebP
+- **Dimensões**: 300x200px (proporção 3:2)
 
-For end-to-end (e2e) testing, run:
+## 📱 Responsividade
 
-```bash
-ng e2e
-```
+- **Mobile**: Stack vertical, carrossel 1 card
+- **Desktop**: Layout completo, carrossel 3 cards
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+> 🎨 **Interface moderna** construída com **Angular + CSS avançado**
